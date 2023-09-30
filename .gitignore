@@ -360,4 +360,4 @@ pyrightconfig.json
 # Ignore all local history of files
 .history
 .ionide
-
+fin_mc_env/*
