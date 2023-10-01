@@ -1,0 +1,242 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Simulation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container justify-content-end">
+        <span class=".navbar-brand text-light fs-2">Financial DSS</span>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row row-cols-auto">
+        <div class="col col-8 m-3 border border-dark">
+          <p class="fs-1 text-center">Simulation Input Parameters</p>
+          <form method="POST" class="needs-validation">
+            <div class="row">
+              <div class="col mb-3 mt-3">
+                <label for="profit_l" class="form-label">Profit (Low)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="profit_l"
+                  name="profit_l"
+                  value="47"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">
+                  Please fill out a number in this field.
+                </div>
+              </div>
+              <!-- Another input-->
+              <div class="col mb-3 mt-3">
+                <label for="profit_h" class="form-label">Profit (High)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="profit_h"
+                  name="profit_h"
+                  value="53"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">
+                  Please fill out a number in this field.
+                </div>
+              </div>
+            </div>
+            <!-- Another input-->
+
+            <div class="row">
+              <div class="col mb-3 mt-3">
+                <label for="leads_l" class="form-label">Leads (Low)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="leads_l"
+                  name="leads_l"
+                  value="1200"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">
+                  Please fill out a number in this field.
+                </div>
+              </div>
+
+              <div class="col mb-3 mt-3">
+                <label for="leads_h" class="form-label">Leads (High)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="leads_h"
+                  name="leads_h"
+                  value="1800"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">
+                  Please fill out a number in this field.
+                </div>
+              </div>
+            </div>
+            <!-- Another input-->
+            <div class="row">
+              <div class="col mb-3 mt-3">
+                <label for="conv_l" class="form-label"
+                  >Conversion Rate (Low)</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="conv_l"
+                  name="conv_l"
+                  value="0.01"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">
+                  Please fill out a number in this field.
+                </div>
+              </div>
+
+              <div class="col mb-3 mt-3">
+                <label for="conv_h" class="form-label"
+                  >Conversion Rate (High)</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="conv_h"
+                  name="conv_h"
+                  value="0.05"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">
+                  Please fill out a number in this field.
+                </div>
+              </div>
+            </div>
+            <!-- Another input -->
+            <div class="row">
+              <div class="col mb-3 mt-3">
+                <label for="lc_l" class="form-label">Lead Cost (Low)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="lc_l"
+                  name="lc_l"
+                  value="0.2"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">
+                  Please fill out a number in this field.
+                </div>
+              </div>
+
+              <div class="col mb-3 mt-3">
+                <label for="lc_h" class="form-label">Lead Cost (High)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="lc_h"
+                  name="lc_h"
+                  value="0.8"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">
+                  Please fill out a number in this field.
+                </div>
+              </div>
+            </div>
+            <!-- Another input -->
+            <div class="row">
+              <div class="col mb-3 mt-3">
+                <label for="overhead" class="form-label">Overhead</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="overhead"
+                  name="overhead"
+                  value="800"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">
+                  Please fill out a number in this field.
+                </div>
+              </div>
+
+              <div class="col mb-3 mt-3">
+                <label for="nsim" class="form-label">Simulation Runs</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="nsim"
+                  name="nsim"
+                  value="10"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">
+                  Please fill out a number in this field.
+                </div>
+              </div>
+            </div>
+
+            <center>
+              <button type="submit" class="col-md-3 btn btn-primary">
+                Submit
+              </button>
+            </center>
+          </form>
+        </div>
+
+        <div class="col col-3 m-3 border border-dark text-center">
+          <p class="fs-1 text-center">Results</p>
+
+          <!-- <p class="mark">Average is {{avg_profit}}</p> -->
+          <p class="mark">{{user_text}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row row-cols-auto">
+      <div class="col col-12 m-3 border border-dark">
+        <center>
+          <img src="{{ url_for('static', filename='profit_sim.png')}}""
+          alt="Chart" height="auto" width="70%">
+        </center>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
