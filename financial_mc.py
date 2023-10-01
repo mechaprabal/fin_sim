@@ -33,7 +33,7 @@ def fin_mc(
     lc_low=0.2,
     lc_high=0.8,
     f_overhead=800,
-    n_iter=10000,
+    n_iter=10,
 ):
     """
     Function to evaluate financial profits
@@ -62,11 +62,13 @@ def fin_mc(
     
     all_profits = [sale["overall_profit"] for sale in sales_data]
 
-    print(all_profits)
+    # print(all_profits)
 
-    print(f"Average profit for {n_iter} periods is: {np.mean(all_profits)}")
+    avg_profit = round(np.mean(all_profits),2)
 
-    return
+    # print(f"Average profit for {n_iter} periods is: {avg_profit}")
+
+    return (sales_data, avg_profit, all_profits)
 
 
 if __name__ == "__main__":
